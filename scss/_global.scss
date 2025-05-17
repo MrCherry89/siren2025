@@ -1,0 +1,269 @@
+$purple: #AF53AF;
+
+body,
+html {
+  overflow-x: hidden;
+  font-family: 'Gilroy-Regular';
+  &.overflow {
+    overflow: hidden !important;
+  }
+}
+
+body {
+  @include flex;
+  @include dir-col;
+  @include justify-between;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Gilroy-Regular';
+}
+
+input,
+textarea {
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+  background: none;
+  &:focus {
+    outline: none;
+    border: none;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+  display: inline-block;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.wrapper {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.tab-content {
+  display: none;
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  width: 100%;
+}
+
+.tab-content.active {
+ display: block;
+  position: relative;
+  top: 0;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #eee;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
+  @media (max-width: 767px) {
+    padding: 8px 18px;
+   }
+}
+
+.tab-btn.active {
+  background: $purple;
+  color: #fff;
+}
+
+.map-wrap{
+  margin: 40px 0;
+  @media (max-width: 767px) {
+   margin: 20px 0;
+   }
+  .main-title{
+    margin-bottom: 40px;
+  }
+  #map{
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 660px;
+    @media (max-width: 767px) {
+      height: 300px;
+     }
+  }
+}
+
+.panorama{
+  margin: 40px 0;
+  overflow: hidden;
+  @media (max-width: 767px) {
+    margin: 20px 0 30px;
+    }
+  .main-title{
+    margin-bottom: 40px;
+    @media (max-width: 767px) {
+      margin-bottom: 20px;
+      }
+  }
+}
+
+#panorama{
+  height: 660px;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  @media (max-width: 1024px) {
+   height: 65vw;
+    }
+}
+
+
+.planning-solutions {
+  margin: 40px 0 60px;
+  @media (max-width: 767px) {
+    margin: 20px 0 40px;
+    }
+  .title-wrap{
+    margin-bottom: 30px;
+    @include flex;
+    @include align-center;
+    @include justify-between;
+    @media (max-width: 767px) {
+      @include dir-col;
+      align-items: flex-start;
+      margin-bottom: 10px;
+     }
+    .tab-buttons{
+      @include flex;
+      @media (max-width: 767px) {
+        margin-top: 20px;
+       }
+    }
+  }
+}
+
+.planning-solutions-wrap {
+  @include flex;
+  flex-direction: row-reverse;
+  @media (max-width: 767px) {
+    flex-direction: column-reverse;
+  }
+  .slider-nav {
+    .slick-list {
+      margin: -10px;
+    }
+    .item {
+      height: 140px;
+      border-radius: 10px;
+      box-shadow: 3.058px 3.058px 7.646px 0px rgba(0, 0, 0, 0.25);
+      margin: 10px;
+      opacity: 0.5;
+      @media (max-width: 767px) {
+        margin: 10px 6px;
+        height: auto;
+        border-radius: 8px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+      &.slick-current {
+        opacity: 1;
+      }
+    }
+  }
+  .slider-for {
+    .slick-list {
+      margin: -15px;
+    }
+    .item {
+      @include flex;
+      border-radius: 10px;
+      margin: 15px;
+      box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
+      @media (max-width: 767px) {
+       border-radius: 8px;
+       overflow: hidden;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .left {
+    width: 240px;
+    min-width: 240px;
+    margin-left: 15px;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+    @include flex;
+    @include align-center;
+    padding: 30px 20px;
+    @media (max-width: 767px) {
+      width: 100%;
+      margin: 0;
+      margin-top: 20px;
+      padding: 10px;
+      display: block;
+      border-radius: 10px;
+    }
+  }
+  .right {
+    width: calc(100% - 255px);
+    position: relative;
+    z-index: 0;
+    border-radius: 20px;
+    background: #fff;
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+  }
+}
+
