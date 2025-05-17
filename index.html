@@ -25,7 +25,7 @@
       <div class="wrapper">
         <div class="header-info">
           <a href="index.html" class="header-logo">
-            <img src="img/logo.svg" alt="">
+            <img src="img/logo.png" alt="">
           </a>
           <ul class="header-menu">
             <li><a href="#">Главная</a></li>
@@ -56,7 +56,7 @@
                 <h1>Тихая жизнь</h1>
                 <div class="buttons">
                   <a href="#" class="request-btn">Оставить заявку</a>
-                  <a href="#" class="consultation-btn">Получить консультацию</a>
+                  <a href="#" class="consultation-btn">Скачать буклет</a>
                 </div>
               </div>
             </div>
@@ -195,7 +195,37 @@
           <div class="bg" style="background-image: url(img/main-slider-img.png)"></div>
         </div>
         <div class="item">
-          <div class="bg" style="background-image: url(img/main-slider-img.png)"></div>
+          <div class="bg" style="background-image: url(img/main-slider-img2.jpg)"></div>
+        </div>
+        <div class="item">
+          <div class="bg" style="background-image: url(img/main-slider-img3.jpg)"></div>
+        </div>
+        <div class="item">
+          <div class="bg" style="background-image: url(img/main-slider-img4.jpg)"></div>
+        </div>
+        <div class="item">
+          <div class="bg" style="background-image: url(img/main-slider-img5.jpg)"></div>
+        </div>
+        <div class="item">
+          <div class="bg" style="background-image: url(img/main-slider-img6.jpg)"></div>
+        </div>
+        <div class="item">
+          <div class="bg" style="background-image: url(img/main-slider-img7.jpg)"></div>
+        </div>
+        <div class="item">
+          <div class="bg" style="background-image: url(img/main-slider-img8.jpg)"></div>
+        </div>
+        <div class="item">
+          <div class="bg" style="background-image: url(img/main-slider-img9.jpg)"></div>
+        </div>
+        <div class="item">
+          <div class="bg" style="background-image: url(img/main-slider-img10.jpg)"></div>
+        </div>
+        <div class="item">
+          <div class="bg" style="background-image: url(img/main-slider-img11.jpg)"></div>
+        </div>
+        <div class="item">
+          <div class="bg" style="background-image: url(img/main-slider-img12.jpg)"></div>
         </div>
       </div>
     </div>
@@ -253,6 +283,13 @@
       <div class="wrapper">
         <h2 class="main-title">обзор 360</h2>
         <div id="panorama"></div>
+        <div class="controls">
+          <button onclick="loadPanorama(0)">1</button>
+          <button onclick="loadPanorama(1)">2</button>
+          <button onclick="loadPanorama(2)">3</button>
+          <button onclick="loadPanorama(3)">4</button>
+          <button onclick="loadPanorama(4)">5</button>
+        </div>
     </div>
     </div>
 
@@ -445,7 +482,7 @@
       <div class="wrapper">
         <div class="footer-info">
           <a href="index.html" class="footer-logo">
-            <img src="img/logo.svg" alt="">
+            <img src="img/logo.png" alt="">
           </a>
           <ul class="footer-menu">
             <li><a href="#">Главная</a></li>
@@ -481,14 +518,53 @@
         
       });
     </script>
+<script>
+  const images = [
+    'img/main-slider-img.png',
+    'img/main-slider-img.png',
+    'img/main-slider-img.png',
+    'img/main-slider-img.png',
+    'img/main-slider-img.png',
+  ];
 
-    <script>
-      pannellum.viewer('panorama', {
-          "type": "equirectangular",
-          "panorama": "360/panorama.jpg",
-          autoLoad: true
-      });
-    </script>
+  const viewer = pannellum.viewer('panorama', {
+    default: {
+      firstScene: 'scene0',
+      sceneFadeDuration: 1000
+    },
+    scenes: {
+      scene0: {
+        type: 'equirectangular',
+        panorama: images[0],
+        autoLoad: true
+      },
+      scene1: {
+        type: 'equirectangular',
+        panorama: images[1],
+        autoLoad: true
+      },
+      scene2: {
+        type: 'equirectangular',
+        panorama: images[2],
+        autoLoad: true
+      },
+      scene3: {
+        type: 'equirectangular',
+        panorama: images[3],
+        autoLoad: true
+      },
+      scene4: {
+        type: 'equirectangular',
+        panorama: images[4],
+        autoLoad: true
+      }
+    }
+  });
+
+  function loadPanorama(index) {
+    viewer.loadScene('scene' + index);
+  }
+</script>
     
   </body>
 </html>
